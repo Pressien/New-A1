@@ -1,0 +1,50 @@
+---
+title: "My name is Pressi"
+author: "Prathishta"
+---
+
+## Introduction
+
+This is a piece I am writing at Arvind's class
+
+I am doing this...
+
+## My First Piece of R code
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(ggformula)
+library(babynames)
+```
+
+```{r}
+babynames
+```
+
+```{r}
+babynames %>% filter(name=="Aditi")
+```
+
+```{r}
+babynames %>% filter(name=="Prathishta")
+```
+
+```{r}
+babynames %>% filter(name=="Aditi") %>% 
+  gf_line(n~year)
+```
+
+Aditi really clicked off in 1980 but why not before?
+
+```{r}
+babynames %>% filter(name=="Adithi" | name=="Aditi")
+```
+
+```{r}
+babynames %>% filter(name=="Adithi" | name=="Aditi") %>% 
+   gf_line(n ~ year, color = ~name)
+
+
+  
+```

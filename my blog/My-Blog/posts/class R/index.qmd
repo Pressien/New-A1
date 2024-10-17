@@ -1,0 +1,158 @@
+```{r}
+
+```
+
+---
+title: "This summary"
+author: "Prathishta"
+---
+
+```{r}
+
+```
+
+## Intro
+
+This is the my work for this class, we are summarizing data. Now mpg and further.
+
+```{r}
+#| label: setup
+library (tidyverse)
+library (ggformula)
+library (mosaic)
+library (kableExtra)
+
+```
+
+## Look at the Mpg doc
+
+```{r}
+mpg
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+mpg %>% dplyr::glimpse()
+
+```
+
+```{r}
+mpg %>% mosaic::inspect()
+```
+
+```{r}
+glimpse (mpg)
+
+```
+
+```{r}
+inspect (mpg)
+
+```
+
+```{r}
+skimr::skim (mpg)
+
+```
+
+```{r}
+glimpse (mpg)
+```
+
+type here
+
+```{r}
+```
+
+```{r}
+mpg_modified <- mpg %>%
+  dplyr::mutate(
+    cyl = as_factor(cyl),
+    fl = as_factor(fl),
+    drv = as_factor(drv),
+    class = as_factor(class),
+    trans = as_factor(trans)
+  )
+glimpse(mpg_modified)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```         
+```
+
+```{r}
+mpg_modified %>%
+  group_by(manufacturer,cty) %>%
+  summarize(cty = mean(hwy), count = n())
+```
+
+## Look at math anxiety doc
+
+```{r}
+math_anxiety <-read_csv("../data/MathAnxiety.csv")
+math_anxiety
+```
+
+cant use read csv as it does not use commas but the datasheet has semi colons the columns are not set as multiple but as one.
+
+so we are using a different command
+
+```{r}
+math_anxiety <- read_delim(file = "../../data/MathAnxiety.csv", delim =";")
+math_anxiety
+                           
+
+```
+
+```{r}
+math_anxiety
+```
+
+```{r}
+math_anxiety %>%
+  group_by(Age,Gender,Grade) %>%
+  summarize(AMAS= mean(AMAS),count= n())
+```
+
+```{r}
+math_anxiety %>% 
+  group_by(Gender) %>%
+  summarise(
+    avg_AMAS = mean(AMAS),
+    avg_RCMAS = mean(RCMAS),
+    avg_Arith = mean(Arith),
+    count=n()
+    
+  )
+
+```
+
+```{r}
+mpg_modified %>%
+  ggplot(aes(x = drv, y = hwy)) +
+  geom_boxplot() +
+  labs(title = "Box Plot of Highway Mileage by Drive Type", x = "Drive Type", y = "Highway Mileage")
+
+```
+
+```{r}
+library ("math anxiety")
+```
+
+```{}
+```
